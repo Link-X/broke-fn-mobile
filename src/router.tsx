@@ -6,7 +6,7 @@ const routes = [
         component: Index,
         routes: [
             {
-                path: '/',
+                path: '/a',
                 exact: true,
                 component: Home
             }
