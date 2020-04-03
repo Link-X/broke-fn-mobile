@@ -1,7 +1,7 @@
 {
-  "name": "broke-fn-mobile",
+  "name": "web",
   "version": "1.0.0",
-  "description": "许道斌的个人博客移动端",
+  "description": "web项目",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development node server/index.js",
