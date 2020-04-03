@@ -2,11 +2,12 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const AutoDllPlugin = require('autodll-webpack-plugin')
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
-// const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
 const argv = require('../../server/argv')
+const isProd = process.env.NODE_ENV === 'production'
 
+const smp = new SpeedMeasurePlugin()
 const resolve = (dir) => path.join(__dirname, '../../', dir)
 
 const COMMON_PLUGINS = [
@@ -29,7 +30,6 @@ if (argv.analyzer) {
     )
 }
 
-
 const styleLoader = isProd ? MiniCssExtractPlugin.loader : 'style-loader'
 
 const smpWrap = argv.analyzer ? smp.wrap : (config) => config
@@ -41,7 +41,7 @@ const cacheLoader = {
     }
 }
 
-module.exports = (webpackOptions) => {
+module.exports = (webpackOptions) =>
     smpWrap({
         mode: webpackOptions.mode,
         entry: webpackOptions.entry,
@@ -58,7 +58,6 @@ module.exports = (webpackOptions) => {
                     exclude: /(node_modules\/(?!(@yunke|fbjs|scheduler|axios)\/)|bower_components)/,
                     include: [
                         resolve('src'),
-                        resolve('node_modules/@yunke'),
                         resolve('node_modules/fbjs'),
                         resolve('node_modules/scheduler'),
                         resolve('node_modules/axios')
@@ -201,4 +200,3 @@ module.exports = (webpackOptions) => {
         target: 'web',
         performance: webpackOptions.performance || {}
     })
-}
