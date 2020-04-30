@@ -6,7 +6,7 @@ interface defaultStateType {
 }
 
 const defaultState: defaultStateType = {
-    a: '1'
+    a: 'aabb'
 }
 
 export const HOMEDATAACTION = createAction(

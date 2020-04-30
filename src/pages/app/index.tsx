@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { HOMEDATAACTION } from '@/reducers/home'
 
 interface actionTyp {
-    setData: Function
+    setData: (params: string) => void
 }
 
 interface defaultStateType {
@@ -13,6 +13,11 @@ interface defaultStateType {
 
 interface stateType {
     home: defaultStateType
+}
+
+interface HomeProps extends React.FC {
+    home: defaultStateType
+    setData: actionTyp
 }
 
 const mapActiontoProps = (dispatch: any): actionTyp => ({
@@ -28,7 +33,7 @@ const mapStateToProps = (state: stateType): stateType => {
     }
 }
 
-function Home(props: any): JSX.Element {
+const Home: HomeProps = (props): JSX.Element => {
     const history = useHistory()
     const goTo = (): void => {
         history.push({
@@ -43,10 +48,10 @@ function Home(props: any): JSX.Element {
         <div
             className="home"
             onClick={() => {
-                props.setData('bbcce')
+                props.setData('eeee')
             }}
         >
-            321
+            321 {props.home.a}
         </div>
     )
 }

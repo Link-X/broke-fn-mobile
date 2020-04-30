@@ -4,19 +4,21 @@ import 'core-js/features/promise'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import Root from './root'
 import './assets/index.less'
 import configureStore from './configureStore'
+
+import 'antd/dist/antd.less'
 
 const store = configureStore()
 const MOUNT_NODE = document.getElementById('app')
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter basename="/borker">
+        <HashRouter>
             <Root />
-        </BrowserRouter>
+        </HashRouter>
     </Provider>,
     MOUNT_NODE
 )

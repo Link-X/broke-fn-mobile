@@ -1,4 +1,4 @@
-import Index from './pages/app/index'
+import Index from './pages/app/loadable'
 import Home from './pages/home/loadable'
 
 const routes = [

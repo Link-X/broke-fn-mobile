@@ -1,7 +1,7 @@
 import React from 'react'
 
-function Home(props: any): JSX.Element {
-    return <div className="home">321</div>
+const Home: React.FC = (props: any): JSX.Element => {
+    return <div className="home">112233</div>
 }
 
 export default Home

@@ -20,13 +20,7 @@
   },
   "lint-staged": {
     "!(*test).(j|t)s?(x)": [
-      "prettier --write",
-      "eslint",
-      "eslint --fix"
-    ],
-    "*.(css|less)": [
-      "stylelint",
-      "stylelint --fix"
+      "prettier --write"
     ]
   },
   "devDependencies": {
@@ -108,6 +102,7 @@
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "@hot-loader/react-dom": "^16.11.0",
+    "antd": "^4.2.0",
     "axios": "^0.19.0",
     "core-js": "^3.6.4",
     "hoist-non-react-statics": "^3.3.1",
