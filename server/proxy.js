@@ -1,5 +1,5 @@
 const options = {
-    target: 'https://test-qmyxcg.myscrm.com.cn', // target host
+    target: '', // target host
     changeOrigin: true, // needed for virtual hosted sites
     pathRewrite: {
         '^/api': '/api'
